@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;  //make changes at appropriate places to include this dependency
 
@@ -26,6 +27,7 @@ import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
+    Toast toast;
     int matchCounter=0;
     int []performance={-1,-1,-1,-1,-1,-1}; //score of a game is updated in this array
     int []score={-1,-1,-1}; //score of each match is updated in this array. A total of three matches in a game
@@ -41,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         }else{
             score[matchCounter++]=0;
         }
+        toast.show();
         newMatch();
     }
     @Override
@@ -78,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
         textView2.setText(operand1 + operator + operand2);
 
       // Your code here, to diplay correct and incorrect options on the buttons
+        int correctAns;
         if(operator.equals("+")){
             correctAns = operand1 + operand2;
         }
